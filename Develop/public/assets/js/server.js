@@ -1,18 +1,29 @@
 // Dependencies
 const express = require('express');
-const fs = require('fs');
 const path = require('path');
+const fs = require('fs');
+const util = require('util');
+
 
 // Initialize Express App
 const app = express();
 const PORT = 3001;
 
-// GET routing 
-// app is an instance of express
+// Middleware for parsing JSON and urlencoded form data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// GET route for homepage
 app.get('/', (req, res) => {
     res.send('Hello World!') // REVISIT
 }) 
 
-app.listen(port, () => {
-    console.log('Example app listening on port ${port}')
-})
+
+
+
+
+
+
+app.listen(PORT, () =>
+  console.log(`App listening at http://localhost:${PORT} 🚀`)
+);
